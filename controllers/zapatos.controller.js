@@ -2,6 +2,8 @@
 const { request , response } = require("express");
 const { zapatos } = require("../zapatos");
 
+
+
 const getZapatos = ( req , res ) =>{
 
     return res.json({
@@ -41,7 +43,38 @@ const getZapatosById = ( req = request , res = response ) =>{
     }
 }
 
+
+const getZapatosByMarca = ( req = request , res = response ) =>{
+
+    let marca = (req.params.marca);
+
+    let marcaABuscar = "";
+
+    marcaABuscar = zapatos.filter((zapato)=>{
+
+        return zapato.marca === marca;
+    })
+
+    if(marcaABuscar){
+        return res.json({
+
+            ok: true,
+            statusCode: 200,
+            marcaABuscar
+        })
+    }else{
+        return res.json({
+
+            ok: true,
+            statusCode: 404,
+            msg: "no hay zapatos con ese ID"
+        })
+    }
+}
+
+
 module.exports = {
     getZapatos,
-    getZapatosById
+    getZapatosById,
+    getZapatosByMarca
 }

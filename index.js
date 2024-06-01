@@ -5,13 +5,15 @@ const puerto = 2006;
 
 
 
-const {getZapatos , getZapatosById} = require("./controllers/zapatos.controller");
+const {getZapatos , getZapatosById , getZapatosByMarca} = require("./controllers/zapatos.controller");
 
 app.use(cors());
 
 app.get("/" , getZapatos );
 
-app.get("/:id" , getZapatosById );
+app.get("/id/:id" , getZapatosById );
+
+app.get("/marca/:marca" , getZapatosByMarca );
 
 "localhost"
 
