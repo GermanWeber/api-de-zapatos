@@ -8,9 +8,7 @@ const getZapatos = ( req , res ) =>{
 
     return res.json({
 
-        ok: true,
-        statusCode: 200,
-        zapatos : zapatos
+        zapatos
 
     });
 }
@@ -29,8 +27,7 @@ const getZapatosById = ( req = request , res = response ) =>{
     if(zapatoABuscar){
         return res.json({
 
-            ok: true,
-            statusCode: 200,
+            
             zapatoABuscar
         })
     }else{
